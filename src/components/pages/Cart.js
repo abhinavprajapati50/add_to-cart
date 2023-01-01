@@ -1,5 +1,7 @@
 import React from 'react'
+import { Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
+import { decrementAction, incrementAction } from '../../Redux/actions'
 
 export const Cart = () => {
     const selector = useSelector(state => state)
@@ -14,6 +16,19 @@ export const Cart = () => {
     console.log("🚀 ~ file: Cart.js:10 ~ Cart ~ totalCartAmount ", totalCartAmount)
     const TotalPrice = (itemprice, qnt) => {
         return (itemprice * qnt).toFixed(2)
+    }
+
+    const incrementQuantity = (curQue) => {
+        console.log("🚀 ~ file: Cart.js:20 ~ incrementQuantity ~ curQue", curQue)
+
+        dispatch(incrementAction(curQue))
+
+    }
+    const decrementQuantity = (curQue) => {
+        console.log("🚀 ~ file: Cart.js:20 ~ incrementQuantity ~ curQue", curQue)
+        dispatch(decrementAction(curQue))
+
+
     }
     return (
         <div className="row">
@@ -40,6 +55,16 @@ export const Cart = () => {
                                         <td>{item.productName}</td>
                                         <td><img src={item.image} style={{ width: '100px', height: '80px' }} /></td>
                                         <td>{item.price} $</td>
+                                        <td>
+                                            <Button className="mr-2 "
+                                                onClick={() => incrementQuantity(item)}
+                                            >+</Button>
+                                            (x{item.quantity})
+                                            <Button
+                                                onClick={() => decrementQuantity(item)}
+
+                                            >-</Button>
+                                            $</td>
 
                                         <td>
                                             {TotalPrice(item.price, item.quantity)}
@@ -53,7 +78,8 @@ export const Cart = () => {
                             <td colSpan="5">Total Carts</td>
                             <td>
                                 {/* {Number(TotalCart).toLocaleString('en-US')} */}
-                                {totalCartAmount.toFixed(2)} $</td>
+                                {totalCartAmount.toFixed(2)} $
+                            </td>
                         </tr>
                     </tbody>
 

@@ -1,5 +1,5 @@
 import { data } from "../Data";
-import { ADD_TO_CART, FILTERED_SHOP, GET_All_Shop } from "./types";
+import { ADD_TO_CART, DECREMENT_QUANTITY, FILTERED_SHOP, GET_All_Shop, INCREMENT_QUANTITY } from "./types";
 
 const initialState = {
     products: data,
@@ -9,7 +9,7 @@ const initialState = {
 
 }
 export const shopReducers = (state = initialState, action) => {
-    console.log("🚀 ~ file: reducers.js:10 ~ cart", initialState.products)
+    console.log("🚀 ~ file: reducers.js:10 ~ cart", initialState.cart)
     switch (action.type) {
         case GET_All_Shop:
             return {
@@ -37,6 +37,25 @@ export const shopReducers = (state = initialState, action) => {
             console.log("🚀 ~ file: reducers.js:35 ~ shopReducers ~ filteredProduict", filteredProduict)
 
             return { ...state, products: filteredProduict }
+
+        case INCREMENT_QUANTITY:
+            console.log(" INCREMENT_QUANTITY")
+            return {
+                ...state, cart: state.cart.map(cur => {
+                    return cur.id === action.payload.id ? { ...cur, quantity: cur.quantity + 1 } : cur
+                })
+            }
+
+        case DECREMENT_QUANTITY:
+            console.log(" DECREMENT_QUANTITY")
+            return {
+                ...state, cart: state.cart.map(i => {
+                    console.log("🚀 ~ file: reducers.js:58 ~ shopReducers ~ i.id === action.payload.id", i.id === action.payload.id)
+                    return i.id === action.payload.id ?
+                        { ...i, quantity: i.quantity - 1 } : i;
+
+                }).filter(cur => cur.quantity === 0 ? cur.id !== action.payload.id : cur)
+            }
         default:
             return state;
     }
