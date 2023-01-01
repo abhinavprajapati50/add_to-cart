@@ -1,4 +1,4 @@
-import { ADD_TO_CART, DECREMENT_QUANTITY, FILTERED_SHOP, GET_All_Shop, INCREMENT_QUANTITY } from "./types"
+import { ADD_TO_CART, DECREMENT_QUANTITY, FILTERED_SHOP, GET_All_Shop, INCREMENT_QUANTITY, REMOVE_QUANTITY } from "./types"
 
 export const shopAction = (array) => (dispatch) => {
     dispatch({ type: GET_All_Shop, payload: array })
@@ -15,4 +15,10 @@ export const incrementAction = (item) => (dispatch) => {
 }
 export const decrementAction = (item) => (dispatch) => {
     dispatch({ type: DECREMENT_QUANTITY, payload: item })
+}
+export const romoveItemAction = (id) => (dispatch) => {
+    dispatch({
+        type: REMOVE_QUANTITY
+        , payload: id
+    })
 }

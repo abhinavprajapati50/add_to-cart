@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { decrementAction, incrementAction } from '../../Redux/actions'
+import { decrementAction, incrementAction, romoveItemAction } from '../../Redux/actions'
 
 export const Cart = () => {
     const selector = useSelector(state => state)
@@ -9,11 +9,7 @@ export const Cart = () => {
     console.log("🚀 ~ file: Cart.js:6 ~ Cart ~ selector", selector.cart
     )
 
-    const totalCartAmount = selector.cart.reduce((acc, cur) => acc + cur.price * cur.quantity
-
-        // * cur.quantity + cur.price * cur.quantity
-        , 0)
-    console.log("🚀 ~ file: Cart.js:10 ~ Cart ~ totalCartAmount ", totalCartAmount)
+    const totalCartAmount = selector.cart.reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
     const TotalPrice = (itemprice, qnt) => {
         return (itemprice * qnt).toFixed(2)
     }
@@ -25,10 +21,11 @@ export const Cart = () => {
 
     }
     const decrementQuantity = (curQue) => {
-        console.log("🚀 ~ file: Cart.js:20 ~ incrementQuantity ~ curQue", curQue)
         dispatch(decrementAction(curQue))
-
-
+    }
+    const removeItemHandler = (id) => {
+        console.log("🚀 ~ file: Cart.js:20 ~ incrementQuantity ~ id", id)
+        dispatch(romoveItemAction(id))
     }
     return (
         <div className="row">
@@ -50,7 +47,6 @@ export const Cart = () => {
                                 return (
                                     <tr key={key}>
                                         <td><i className="badge badge-danger"
-                                        // onClick={() => DeleteCart(key)}
                                         >X</i></td>
                                         <td>{item.productName}</td>
                                         <td><img src={item.image} style={{ width: '100px', height: '80px' }} /></td>
@@ -69,6 +65,7 @@ export const Cart = () => {
                                         <td>
                                             {TotalPrice(item.price, item.quantity)}
                                             $</td>
+                                        <td> <Button className="bg-danger" onClick={() => removeItemHandler(item.id)}>X</Button></td>
                                     </tr>
                                 )
                             })
@@ -77,7 +74,6 @@ export const Cart = () => {
                         <tr>
                             <td colSpan="5">Total Carts</td>
                             <td>
-                                {/* {Number(TotalCart).toLocaleString('en-US')} */}
                                 {totalCartAmount.toFixed(2)} $
                             </td>
                         </tr>

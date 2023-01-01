@@ -7,7 +7,6 @@ export const FilteredButton = () => {
     const selector = useSelector(state => state)
     const dispatch = useDispatch()
     const filterShopHandler = (id) => {
-        // dispatch({ type: FILTERED_SHOP, action: id })
         dispatch(filteredShopAction(id))
     }
 

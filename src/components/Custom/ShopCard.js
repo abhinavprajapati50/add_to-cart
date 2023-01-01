@@ -9,14 +9,7 @@ import style from '../../components/assets/css/CustomCss/Card.module.css';
 
 export const ShopCard = () => {
     const shopSelector = useSelector(state => state)
-    console.log("🚀 ~ file: ShopCard.js:12 ~ ShopCard ~ shopSelector", shopSelector.filtershop
-    )
     const navgate = useNavigate()
-
-    // useEffect(() => {
-    //     dispatch(shopAction(data))
-    // }, [dispatch])
-
     const showTheSubCategory = (id) => {
         navgate(`/subcategory/${id}`)
     }

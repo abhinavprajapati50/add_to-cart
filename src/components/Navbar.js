@@ -7,7 +7,6 @@ import './assets/css/mainComponents/Navbar.module.css';
 
 export const Navbar = () => {
     const selector = useSelector(state => state)
-    // console.log("🚀 ~ file: Navbar.js:9 ~ Navbar ~ selector", selector.cart.length)
     return (
         <div>
             <nav className="navbar navbar-expand-md navbar-light bg-light main-menu"
@@ -19,7 +18,6 @@ export const Navbar = () => {
                     </button>
 
                     <Link className="navbar-brand" href="#">
-                        {/* <h4 className="font-weight-bold">Logo</h4> */}
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
                             <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
                         </svg>
@@ -30,12 +28,7 @@ export const Navbar = () => {
                             <Link className="btn btn-link" href="#"><i className="bx bxs-cart icon-single"></i> <span className="badge badge-danger">3</span></Link>
                         </li>
                     </ul>
-                    {/* <span>
 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cursor" viewBox="0 0 16 16">
-                            <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52 2.25 8.184z" />
-                        </svg>
-                    </span> */}
                     <div>
 
                         <div
@@ -50,15 +43,11 @@ export const Navbar = () => {
 
                             <Form.Control type="password" placeholder=" Delivery Address/Post Code" className='w-3' />
 
-                            {/* <Button
-                            variant="light"
-                            className='bg-light'
-                        > */}
+
                             <svg xmlns="http://www.w3.org/2000/svg" width="1" height="16" fill="currentColor" className="bi bi-cursor" viewBox="0 0 16 16">
                                 <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52 2.25 8.184z" />
                             </svg>
-                            {/* Delivery Address/Post Code */}
-                            {/* </Button> */}
+
                         </div>
                     </div>
                     <div>
@@ -90,7 +79,7 @@ export const Navbar = () => {
                             <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z" />
                         </svg>
                     </span>
-                    <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+                    <Link to="/shop" style={{ textDecoration: "none", color: "black" }}>
 
                         <span>   Shops </span>
 
@@ -136,29 +125,12 @@ export const Navbar = () => {
                             <p class="badge badge-pill bg  " style={{ marginLeft: "10px", fontSize: "15px", color: 'black' }}>{selector.cart.length}</p>
                         </Link>
 
-                        {/* <span class="badge badge-pill badge-dark" style={{ color: "black", fontSize: "23px" }}>{selector.cart.length}</span> */}
                     </span>
-
-                    {/* </div> */}
 
                     <div>
                     </div>
 
-                    {/* <div className="collapse navbar-collapse">
-                        <form className="form-inline my-2 my-lg-0 mx-auto">
-                            <input className="form-control" type="search" placeholder="Search for products..." aria-label="Search" />
-                            <button className="btn btn-success my-2 my-sm-0" type="submit"><i className="bx bx-search"></i></button>
-                        </form>
 
-                        <ul className="navbar-nav">
-                            <li className="nav-item">
-                                <Link className="btn btn-link" href="#"><i className="bx bxs-cart icon-single"></i> <span className="badge badge-danger">3</span></Link>
-                            </li>
-                            <li className="nav-item ml-md-3">
-                                <Link className="btn btn-primary" href="#"><i className="bx bxs-user-circle mr-1"></i> Log In / Register</Link>
-                            </li>
-                        </ul>
-                    </div> */}
 
                 </div>
             </nav >
