@@ -5,7 +5,6 @@ const store = configureStore
     (
         {
             reducer: shopReducers
-            // rootReducer
         }
     )
 

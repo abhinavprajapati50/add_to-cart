@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import { Navbar } from './components/Navbar';
 import { Cart } from './components/pages/Cart';
+import { Home } from './components/pages/Home';
 import { Shopes } from './components/pages/Shopes';
 import { SubCategory } from './components/pages/SubCategory';
 import { data } from './Data';
@@ -15,16 +16,15 @@ function App() {
   useEffect(() => {
     dispatch(shopAction(data))
     // 
-  }, [dispatch, Route])
+  }, [dispatch])
   return (
     <div className="App">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Shopes />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shopes />} />
         <Route path="/subcategory/:id" element={<SubCategory />} />
         <Route path="/cart" element={<Cart />} />
-        {/* <Route path="blogs" element={<Blogs />} />
-          <Route path="contact" element={<Contact />} /> */}
         <Route path="*" element={<Shopes />} />
       </Routes>
 
